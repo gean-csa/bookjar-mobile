@@ -16,6 +16,8 @@
 
 ---
 
+## Introdução
+
 Este projeto foi desenvolvido como parte da matéria de Programação para Dispositivos Móveis, ministrada na Universidade Catolica de Salvador (UCSal) sob a orientação do Professor Mario Jorge. O objetivo é criar uma aplicação móvel utilizando Flutter, que é um framework de código aberto da Google para a criação de interfaces de usuário para plataformas móveis e web, os requisitos foram:
 
 - Requisito 1
@@ -44,9 +46,9 @@ Este guia simplificado ajuda você a instalar o Flutter no Windows. Para detalhe
         - Não instalar em pastas que contenham caracter especial e/ou espaço.
         Ex: `C:/dev flutter` ou `C:/dev_flutter!`.
         - Escolher um local que não exija privilégios de administrador para modificações. Portanto, evite locais como `C:\Program Files\`
-        
+
     - Após escolher o local, extraia o conteúdo do arquivo `.zip` para lá. Isso criará uma pasta `flutter` no diretório escolhido, contendo todos os arquivos necessários do SDK do Flutter.
-    &nbsp;    
+    &nbsp;
 
 2. **Atualize o Path do Sistema:**
    - Para que as ferramentas do Flutter sejam acessíveis a partir da linha de comando em qualquer diretório, você precisa adicionar o caminho do Flutter SDK ao Path do sistema.
@@ -59,7 +61,7 @@ Este guia simplificado ajuda você a instalar o Flutter no Windows. Para detalhe
      5. Clique em 'OK' para fechar cada uma das janelas.
    - Após adicionar o Flutter ao Path, você precisará reiniciar qualquer prompt de comando aberto ou reiniciar o sistema para que as alterações entrem em vigor.
    - Para verificar se o Path foi configurado corretamente, abra um novo prompt de comando e digite `flutter --version`. Se o Flutter estiver corretamente instalado, você verá a versão do Flutter exibida.
-    &nbsp;    
+    &nbsp;
 
 3. **Execute o Flutter Doctor:**
     O comando `flutter doctor` é uma ferramenta de linha de comando que verifica automaticamente se o seu ambiente de desenvolvimento está configurado corretamente para o desenvolvimento com Flutter.
@@ -71,13 +73,11 @@ Este guia simplificado ajuda você a instalar o Flutter no Windows. Para detalhe
    - Siga as instruções e recomendações fornecidas pelo `flutter doctor`. Se houver algum problema identificado, o comando geralmente oferece uma descrição clara do problema e sugestões sobre como resolvê-lo.
    - Uma vez que todas as verificações estejam mostrando um status de sucesso (geralmente indicado por um sinal de check verde), seu ambiente estará pronto para desenvolver aplicações Flutter.
    - É uma boa prática executar `flutter doctor` regularmente para garantir que seu ambiente de desenvolvimento esteja sempre atualizado e configurado corretamente.
-       &nbsp;    
+       &nbsp;
 
-
-   >**Atenção!** 
+   >**Atenção!**
    Se você não possuir o Android Studio ou o Android SDK instalados em sua máquina, ao utilizar o flutter doctor pela primeira vez, você será informado sobre a necessidade de instalar o Android toolchain.
    Para resolver siga os passos do proximo topico
-
 
 ## Configuração do Android
 
