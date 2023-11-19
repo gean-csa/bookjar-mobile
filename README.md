@@ -44,7 +44,7 @@ Este guia simplificado ajuda você a instalar o Flutter no Windows. Para detalhe
 
     - Escolha um local apropriado no seu computador para extrair os arquivos, seguindo as seguintes recomendações:
         - Não instalar em pastas que contenham caracter especial e/ou espaço.
-        Ex: `C:/dev flutter` ou `C:/dev_flutter!`.
+        Ex: `C:\dev flutter` ou `C:\dev_flutter!`.
         - Escolher um local que não exija privilégios de administrador para modificações. Portanto, evite locais como `C:\Program Files\`
 
     - Após escolher o local, extraia o conteúdo do arquivo `.zip` para lá. Isso criará uma pasta `flutter` no diretório escolhido, contendo todos os arquivos necessários do SDK do Flutter.
