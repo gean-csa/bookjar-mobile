@@ -5,7 +5,6 @@
 - Ana Paula Tartari
 - Beatriz Calazans
 - Gean Carlos Almeida
-- Grhamm Pabst
 
 ### Professor
 
