@@ -61,6 +61,7 @@ Este guia simplificado ajuda você a instalar o Flutter no Windows. Para detalhe
      5. Clique em 'OK' para fechar cada uma das janelas.
    - Após adicionar o Flutter ao Path, você precisará reiniciar qualquer prompt de comando aberto ou reiniciar o sistema para que as alterações entrem em vigor.
    - Para verificar se o Path foi configurado corretamente, abra um novo prompt de comando e digite `flutter --version`. Se o Flutter estiver corretamente instalado, você verá a versão do Flutter exibida.
+   ![flutter --version](image.png)
     &nbsp;
 
 3. **Execute o Flutter Doctor:**
@@ -73,7 +74,8 @@ Este guia simplificado ajuda você a instalar o Flutter no Windows. Para detalhe
    - Siga as instruções e recomendações fornecidas pelo `flutter doctor`. Se houver algum problema identificado, o comando geralmente oferece uma descrição clara do problema e sugestões sobre como resolvê-lo.
    - Uma vez que todas as verificações estejam mostrando um status de sucesso (geralmente indicado por um sinal de check verde), seu ambiente estará pronto para desenvolver aplicações Flutter.
    - É uma boa prática executar `flutter doctor` regularmente para garantir que seu ambiente de desenvolvimento esteja sempre atualizado e configurado corretamente.
-       &nbsp;
+   ![Doctor Summary indicando instalação correta](image-1.png)
+    &nbsp;
 
    >**Atenção!**
    Se você não possuir o Android Studio ou o Android SDK instalados em sua máquina, ao utilizar o flutter doctor pela primeira vez, você será informado sobre a necessidade de instalar o Android toolchain.
