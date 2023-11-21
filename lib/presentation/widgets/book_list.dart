@@ -28,11 +28,7 @@ class BookList extends StatelessWidget {
       itemCount: 10,
       itemBuilder: (context, index) {
         Book currentBook = bookList[index];
-        return BookTile(
-          title: currentBook.title as String,
-          authorName: currentBook.authors?[0],
-          note: "ASDASDASD", // TODO: Implementar adição de comentario
-        );
+        return BookTile(book: currentBook,);
       },
       separatorBuilder: (context, index) {
         return const SizedBox(height: 16.0);

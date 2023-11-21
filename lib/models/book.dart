@@ -1,10 +1,10 @@
-import 'package:flutter/material.dart';
 
 class Book {
   late String? code; // É o 'id' dentro da API do Google Books
   late String? title;
   late List<dynamic>? authors;
   late String? publisherName;
+  late String? note = "";
 
   Book({this.code, this.title, this.authors, this.publisherName});
 

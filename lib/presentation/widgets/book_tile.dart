@@ -1,33 +1,50 @@
 import 'package:bookjar_mobile/presentation/pages/page_teste.dart';
 import 'package:flutter/material.dart';
 import '../../constants/colors.dart';
+import 'package:bookjar_mobile/constants/texts_styles.dart';
+import 'package:bookjar_mobile/models/book.dart';
+import 'package:bookjar_mobile/presentation/pages/add_note_page.dart';
 
 enum _MenuValues {
   favorite,
   note,
 }
 
-class BookTile extends StatelessWidget {
-  final String title;
-  final String? authorName;
-  final String? note;
+class BookTile extends StatefulWidget {
 
-  const BookTile({super.key, required this.title, this.authorName, this.note});
+  final Book book;
+
+  const BookTile({super.key, required this.book});
 
   @override
+  State<BookTile> createState() => _BookTileState();
+}
+
+class _BookTileState extends State<BookTile> {
+  @override
   Widget build(BuildContext context) {
+    String? authorName = widget.book.authors?[0];
+    String title = widget.book.title!;
+    String note = widget.book.note!;
+
+    // Encontramos livros sem autores na API, esse foi o tratamento mais simples.
+    Text subtitle = authorName != null
+        ? note != null
+            ? Text("$authorName\n$note", style: subheader)
+            : Text("$authorName", style: subheader)
+        : const Text(
+            "Não encontrado",
+            style: warning,
+          );
+          
     return ListTile(
       tileColor: bgwhite,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
         side: const BorderSide(color: primary),
       ),
-      title: Text(title),
-      subtitle: authorName != null
-          ? note != null
-              ? Text("$authorName\n$note")
-              : Text("$authorName")
-          : const Text("Não encontrado"),
+      title: Text(title, style: header),
+      subtitle: subtitle,
       isThreeLine: true,
       trailing: PopupMenuButton<_MenuValues>(
         itemBuilder: (context) => [
@@ -43,14 +60,13 @@ class BookTile extends StatelessWidget {
         onSelected: (value) {
           switch (value) {
             case _MenuValues.favorite:
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder: (c) =>
-                      const PageTeste())); //TODO: Implementar paginas
+              //TODO: add aos favoritos
               break;
             case _MenuValues.note:
               Navigator.of(context).push(MaterialPageRoute(
                   builder: (c) =>
-                      const PageTeste())); //TODO: Implementar paginas
+                      AddNotePage(book: widget.book)));
+              break;
           }
         },
       ),
