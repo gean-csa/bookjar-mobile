@@ -4,6 +4,7 @@ import '../../constants/colors.dart';
 import 'package:bookjar_mobile/constants/texts_styles.dart';
 import 'package:bookjar_mobile/models/book.dart';
 import 'package:bookjar_mobile/presentation/pages/add_note_page.dart';
+import 'package:bookjar_mobile/mock/favorite_books.dart';
 
 enum _MenuValues {
   favorite,
@@ -58,9 +59,16 @@ class _BookTileState extends State<BookTile> {
           ),
         ],
         onSelected: (value) {
+          if (!favoriteBooks.contains(widget.book)) {
+            favoriteBooks.add(widget.book);
+          }
           switch (value) {
             case _MenuValues.favorite:
-              //TODO: add aos favoritos
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text("O livro foi adicionado ao seus favoritos!"),
+                ),
+              );
               break;
             case _MenuValues.note:
               Navigator.of(context).push(MaterialPageRoute(

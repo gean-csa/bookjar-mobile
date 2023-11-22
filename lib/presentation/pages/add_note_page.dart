@@ -3,6 +3,7 @@ import 'package:bookjar_mobile/constants/texts_styles.dart';
 import 'package:bookjar_mobile/models/book.dart';
 import 'package:bookjar_mobile/presentation/widgets/book_tile.dart';
 import 'package:flutter/material.dart';
+import 'package:bookjar_mobile/mock/favorite_books.dart';
 
 class AddNotePage extends StatefulWidget {
   final Book book;
@@ -55,7 +56,9 @@ class _AddNotePageState extends State<AddNotePage> {
             onPressed: () {
               widget.book.note = textController.text;
               setState(() {});
-              // TODO: De fato adicionar livro aos favoritos no perfil
+              if (!favoriteBooks.contains(widget.book)) {
+                favoriteBooks.add(widget.book);
+              }
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(
                   content: Text(
