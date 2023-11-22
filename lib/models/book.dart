@@ -1,4 +1,4 @@
-
+// Classe modelo para a criação das instâncias de Book pelo aplicativo
 class Book {
   late String? code; // É o 'id' dentro da API do Google Books
   late String? title;
@@ -8,6 +8,7 @@ class Book {
 
   Book({this.code, this.title, this.authors, this.publisherName});
 
+// Construtor baseado em objeto Json (para converter os dados da busca à API do Google Books)
   Book.fromJson(Map<String, dynamic> json) {
     code = json["id"];
     title = json["volumeInfo"]["title"];
@@ -15,6 +16,7 @@ class Book {
     publisherName = json["volumeInfo"]["publisher"];
   }
 
+// Método para converter a instancia em um objeto Json
   Map<String, dynamic> toJson() => {
         'code': code,
         'title': title,

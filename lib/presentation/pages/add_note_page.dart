@@ -1,10 +1,12 @@
-import 'package:bookjar_mobile/constants/colors.dart';
-import 'package:bookjar_mobile/constants/texts_styles.dart';
-import 'package:bookjar_mobile/models/book.dart';
-import 'package:bookjar_mobile/presentation/widgets/book_tile.dart';
+import '../../constants/colors.dart';
+import '../../constants/texts_styles.dart';
+import '../../models/book.dart';
+import '../widgets/book_tile.dart';
+import '../../mock/favorite_books.dart';
 import 'package:flutter/material.dart';
-import 'package:bookjar_mobile/mock/favorite_books.dart';
 
+// Define a classe da tela de anotações nos livros.
+// Extende o 'StatefulWidget' pois seu estado é gerenciado durante a execução do app.
 class AddNotePage extends StatefulWidget {
   final Book book;
   const AddNotePage({super.key, required this.book});
@@ -14,6 +16,7 @@ class AddNotePage extends StatefulWidget {
 }
 
 class _AddNotePageState extends State<AddNotePage> {
+  // Declaramos o controlador do campo de texto antes mesmo da construção da página.
   final textController = TextEditingController();
 
   @override
@@ -34,6 +37,7 @@ class _AddNotePageState extends State<AddNotePage> {
           const SizedBox(height: 16),
           BookTile(book: widget.book),
           const SizedBox(height: 24),
+          // Definimos o campo para a anotação do livro com várias opções de customização.
           TextField(
             controller: textController,
             expands: true,
@@ -54,6 +58,8 @@ class _AddNotePageState extends State<AddNotePage> {
               backgroundColor: MaterialStatePropertyAll(primary),
             ),
             onPressed: () {
+              // Ao finalizar a anotação e clicar em salvar, o atributo é alterado
+              // e o método setState() da pagina é chamado para atualizar visualmente o estado daquele BookTile.
               widget.book.note = textController.text;
               setState(() {});
               if (!favoriteBooks.contains(widget.book)) {

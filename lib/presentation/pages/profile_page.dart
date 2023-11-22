@@ -1,13 +1,12 @@
-import 'package:bookjar_mobile/constants/colors.dart';
-import 'package:bookjar_mobile/constants/texts_styles.dart';
-import 'package:bookjar_mobile/mock/favorite_books.dart';
-import 'package:bookjar_mobile/mock/user.dart';
-import 'package:bookjar_mobile/models/book.dart';
-import 'package:bookjar_mobile/presentation/widgets/book_list.dart';
+import '../../constants/colors.dart';
+import '../../constants/texts_styles.dart';
+import '../../mock/favorite_books.dart';
+import '../../mock/user.dart';
+import '../../presentation/widgets/book_list.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'dart:convert' as convert;
 
+// É a classe que define a página de perfil do usuario.
+// Extende StatefulWidget para atender à suas mudanças de estado (Ex.: Alteração do nome de usuário).
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
 
@@ -18,6 +17,8 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   @override
   void initState() {
+    // Através do método 'initState' checamos se o usuário ainda não foi renomeado durante a inicialização da própria pagina,
+    // exibindo a caixa de dialogo imediatamente, se for o caso.
     super.initState();
     if (isGuest == true) {
       WidgetsBinding.instance?.addPostFrameCallback((_) {
@@ -37,6 +38,7 @@ class _ProfilePageState extends State<ProfilePage> {
             actions: [
               TextButton(
                 onPressed: () {
+                  // Ao pressionar o botão no popup, será atualizado o nome do usuário e o estado da página através do método 'setState()'
                   setState(() {
                     username = textController.text;
                   });
@@ -56,6 +58,7 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
+    // 'Scaffold' é o widget principal para a criação da estrutura da página.
     return Scaffold(
       appBar: AppBar(
         title: const Text("BookJar"),
@@ -65,6 +68,7 @@ class _ProfilePageState extends State<ProfilePage> {
             padding: const EdgeInsets.all(2),
             child: IconButton(
               onPressed: () {
+                // Botão retorna à pagina inicial, fazendo 'pop' desta pagina na pilha de navigação.
                 Navigator.pop(context);
               },
               icon: const Icon(Icons.home),
