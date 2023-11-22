@@ -3,29 +3,18 @@ import '../widgets/book_tile.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert' as convert;
 
-List<Book> bookList = [];
+
 
 class BookList extends StatelessWidget {
-  final data;
-  const BookList({super.key, required this.data});
+  final List<Book>bookList;
+  const BookList({super.key, required this.bookList});
 
   @override
   Widget build(BuildContext context) {
-    if (data.statusCode == 200) {
-      final jsonResponse = convert.jsonDecode(data.body);
-      for (var item in jsonResponse['items']) {
-        Book currentBook = Book.fromJson(item);
-        bookList.add(currentBook);
-      }
-    } else {
-      return Center(
-        child: Text("Request failed with status ${data.statusCode}"),
-      );
-    }
     return ListView.separated(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
-      itemCount: 10,
+      itemCount: bookList.length,
       itemBuilder: (context, index) {
         Book currentBook = bookList[index];
         return BookTile(book: currentBook,);
