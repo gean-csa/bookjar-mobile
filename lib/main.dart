@@ -5,6 +5,7 @@ void main() {
   runApp(const MyApp());
 }
 
+// Classe inicial do aplicativo, capaz de direcionar rotas e inicializar a tela de aterrisagem.
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
